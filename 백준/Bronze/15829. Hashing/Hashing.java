@@ -7,19 +7,14 @@ public class Main {
         BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
         int tc = Integer.parseInt(br.readLine());
         String s = br.readLine();
-        int sum = 0;
-        
-        int[] arr = new int[tc];
+        long sum = 0;
+
         for (int i = 0; i < tc; i++) {
-            arr[i] = (s.charAt(i) - 'a') + 1;
-            if (arr[i] * Math.pow(41, i) > 1234567891) {
-                arr[i] = (int)(arr[i] * Math.pow(31, i)) % 1234567891;
-            }
-            else {
-                arr[i] = (int)(arr[i] * Math.pow(31, i));
-            }
-            sum += arr[i];
+            long temp = (s.charAt(i) - 'a') + 1;
+            temp = (long)(temp * Math.pow(31, i));
+            sum += temp;
         }
-        System.out.println(sum);
+
+        System.out.println(sum % 1234567891);
     }    
 }
